@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testapp1-prod-r1
+  namespace: argocd
+  labels:
+    app: testapp1-prod
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  sourceHydrator:
+    drySource:
+      path: env/prod/r1/testapp1
+      repoURL: git@github.com:argotest64/test-deployment.git
+      targetRevision: HEAD
+    hydrateTo:
+      targetBranch: environments/testapp1-prod-next
+    syncSource:
+      path: orf
+      targetBranch: environments/testapp1-prod
+  syncPolicy:
+    automated: {}
