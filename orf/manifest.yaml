@@ -379,7 +379,7 @@ metadata:
     helm.sh/hook: test-success
   labels:
     app.kubernetes.io/instance: testapp1-prod-r1
-  name: testapp1-prod-r1-mariadb-test-987cs
+  name: testapp1-prod-r1-mariadb-test-featl
 spec:
   containers:
     - command:
